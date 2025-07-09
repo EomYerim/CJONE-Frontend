@@ -1,0 +1,337 @@
+.mypage-container {
+  min-height: calc(100vh - 80px);
+  padding: 40px 0;
+  background-color: #f8f8f8;
+}
+
+.mypage-header {
+  text-align: center;
+  margin-bottom: 40px;
+}
+
+.mypage-header h1 {
+  font-size: 2.5rem;
+  color: #000000;
+  margin-bottom: 10px;
+}
+
+.mypage-header p {
+  font-size: 1.2rem;
+  color: #666666;
+}
+
+.mypage-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+  gap: 30px;
+  margin-bottom: 40px;
+}
+
+/* 포인트 카드 */
+.points-card {
+  color: #000000;
+  border-radius: 20px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+  position: relative;
+  border: 1px solid rgba(0, 0, 0, 0.05);
+}
+
+.points-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 6px;
+  background: linear-gradient(90deg, #e60012 0%, #cc0010 100%);
+}
+
+.points-card .card-header {
+  padding: 25px 25px 15px 25px;
+  background: rgba(255, 255, 255, 0.1);
+}
+
+.points-card .card-header h2 {
+  color: #000000;
+  margin-bottom: 0;
+  font-size: 1.3rem;
+  font-weight: 600;
+}
+
+.points-info {
+  padding: 0 25px 25px 25px;
+}
+
+.current-points {
+  text-align: center;
+  margin-bottom: 30px;
+  padding: 20px 0;
+}
+
+.points-label {
+  display: block;
+  font-size: 0.9rem;
+  color: #666666;
+  margin-bottom: 8px;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.points-amount {
+  display: block;
+  font-size: 2.8rem;
+  font-weight: 700;
+  color: #000000;
+  text-shadow: none;
+  line-height: 1;
+}
+
+.points-details {
+  border-top: 1px solid rgba(0, 0, 0, 0.08);
+  padding-top: 20px;
+  margin: 0;
+}
+
+.points-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 8px 0;
+  font-size: 0.9rem;
+  color: #000000;
+}
+
+.points-item:first-child span:last-child {
+  color: #4CAF50;
+  font-weight: 600;
+}
+
+.points-item:last-child span:last-child {
+  color: #FF6B6B;
+  font-weight: 600;
+}
+
+/* 등급 카드 */
+.grade-card {
+  background: white;
+}
+
+.grade-info {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  padding: 20px 0;
+}
+
+.grade-badge {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: bold;
+  font-size: 1.2rem;
+  color: white;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+}
+
+.grade-details h3 {
+  color: #000000;
+  margin-bottom: 10px;
+  font-size: 1.3rem;
+}
+
+.benefits-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.benefits-list li {
+  padding: 5px 0;
+  color: #666666;
+  font-size: 0.9rem;
+  position: relative;
+  padding-left: 20px;
+}
+
+.benefits-list li:before {
+  content: "✓";
+  position: absolute;
+  left: 0;
+  color: #000000;
+  font-weight: bold;
+}
+
+/* 주문 내역 카드 */
+.orders-card {
+  background: white;
+}
+
+.orders-list {
+  padding: 20px 0;
+}
+
+.order-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px 0;
+  border-bottom: 1px solid #eee;
+}
+
+.order-item:last-child {
+  border-bottom: none;
+}
+
+.order-info h4 {
+  color: #000000;
+  margin-bottom: 5px;
+  font-size: 1rem;
+}
+
+.order-info p {
+  color: #666666;
+  font-size: 0.8rem;
+  margin-bottom: 5px;
+}
+
+.order-status {
+  padding: 3px 8px;
+  border-radius: 10px;
+  font-size: 0.7rem;
+  font-weight: bold;
+}
+
+.order-status.completed {
+  background-color: #4CAF50;
+  color: white;
+}
+
+.order-status.processing {
+  background-color: #FF9800;
+  color: white;
+}
+
+.order-price {
+  text-align: right;
+}
+
+.order-price span {
+  display: block;
+  color: #000000;
+  font-weight: bold;
+  font-size: 0.9rem;
+}
+
+.points-used {
+  color: #FF6B6B !important;
+  font-size: 0.8rem !important;
+  margin-top: 5px;
+}
+
+/* 포인트 적립 내역 카드 */
+.points-history-card {
+  background: white;
+}
+
+.points-history {
+  padding: 20px 0;
+}
+
+.history-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 12px 0;
+  border-bottom: 1px solid #eee;
+}
+
+.history-item:last-child {
+  border-bottom: none;
+}
+
+.history-info {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+}
+
+.history-info span:first-child {
+  color: #000000;
+  font-weight: 500;
+  font-size: 0.9rem;
+}
+
+.history-info span:last-child {
+  color: #666666;
+  font-size: 0.8rem;
+}
+
+.points-earned {
+  color: #4CAF50;
+  font-weight: bold;
+  font-size: 0.9rem;
+}
+
+/* 액션 버튼 */
+.mypage-actions {
+  display: flex;
+  gap: 15px;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.mypage-actions .btn {
+  min-width: 150px;
+  padding: 15px 30px;
+  font-size: 16px;
+}
+
+/* 반응형 디자인 */
+@media (max-width: 768px) {
+  .mypage-grid {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+
+  .mypage-header h1 {
+    font-size: 2rem;
+  }
+
+  .mypage-header p {
+    font-size: 1rem;
+  }
+
+  .points-amount {
+    font-size: 2rem;
+  }
+
+  .grade-info {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .order-item {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 10px;
+  }
+
+  .order-price {
+    text-align: left;
+  }
+
+  .mypage-actions {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .mypage-actions .btn {
+    width: 100%;
+    max-width: 300px;
+  }
+} 

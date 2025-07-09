@@ -1,0 +1,387 @@
+.product-detail-container {
+  min-height: calc(100vh - 80px);
+  padding: 40px 0;
+}
+
+.product-detail-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 60px;
+  margin-bottom: 60px;
+}
+
+/* 상품 이미지 섹션 */
+.product-image-section {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+}
+
+.product-image-large {
+  position: relative;
+  width: 400px;
+  height: 400px;
+  background: #f8f8f8;
+  border-radius: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+}
+
+.product-image-large img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 20px;
+}
+
+.product-emoji-large {
+  font-size: 8rem;
+}
+
+.discount-badge-large {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  background-color: #000000;
+  color: white;
+  padding: 8px 15px;
+  border-radius: 20px;
+  font-size: 14px;
+  font-weight: bold;
+}
+
+/* 상품 정보 섹션 */
+.product-info-section {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+}
+
+.product-header {
+  border-bottom: 1px solid #eee;
+  padding-bottom: 20px;
+}
+
+.product-category {
+  display: inline-block;
+  background-color: #f8f9fa;
+  color: #666;
+  padding: 5px 12px;
+  border-radius: 15px;
+  font-size: 12px;
+  margin-bottom: 10px;
+}
+
+.product-title {
+  font-size: 2.5rem;
+  color: #000000;
+  margin-bottom: 20px;
+  line-height: 1.2;
+}
+
+.product-price-section {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  flex-wrap: wrap;
+}
+
+.current-price-large {
+  font-size: 2rem;
+  font-weight: bold;
+  color: #000000;
+}
+
+.original-price-large {
+  font-size: 1.2rem;
+  color: #999;
+  text-decoration: line-through;
+}
+
+.savings {
+  background-color: #000000;
+  color: white;
+  padding: 5px 10px;
+  border-radius: 10px;
+  font-size: 12px;
+  font-weight: bold;
+}
+
+.product-description {
+  line-height: 1.6;
+  color: #666;
+  font-size: 1.1rem;
+}
+
+/* 옵션 섹션 */
+.option-section h3,
+.quantity-section h3 {
+  font-size: 1.2rem;
+  color: #000000;
+  margin-bottom: 15px;
+}
+
+.option-buttons {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.option-btn {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px 20px;
+  border: 2px solid #eee;
+  border-radius: 10px;
+  background: white;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  font-size: 14px;
+}
+
+.option-btn:hover {
+  border-color: #000000;
+}
+
+.option-btn.selected {
+  border-color: #000000;
+  background-color: #f8f9fa;
+}
+
+.option-price {
+  font-weight: bold;
+  color: #000000;
+}
+
+/* 수량 섹션 */
+.quantity-controls {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+.quantity-btn {
+  width: 40px;
+  height: 40px;
+  border: 1px solid #ddd;
+  background: white;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 18px;
+  font-weight: bold;
+  transition: all 0.3s ease;
+}
+
+.quantity-btn:hover:not(:disabled) {
+  border-color: #000000;
+  color: #000000;
+}
+
+.quantity-btn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.quantity-display {
+  font-size: 1.2rem;
+  font-weight: bold;
+  min-width: 50px;
+  text-align: center;
+}
+
+.stock-info {
+  color: #666;
+  font-size: 14px;
+}
+
+/* 포인트 섹션 */
+.points-section {
+  margin-bottom: 30px;
+}
+
+.points-section h3 {
+  font-size: 1.2rem;
+  color: #000000;
+  margin-bottom: 15px;
+}
+
+.points-info {
+  background-color: #f8f9fa;
+  padding: 20px;
+  border-radius: 10px;
+  border: 1px solid #eee;
+}
+
+.points-balance {
+  margin-bottom: 15px;
+  padding-bottom: 15px;
+  border-bottom: 1px solid #eee;
+}
+
+.points-balance span {
+  font-weight: bold;
+  color: #000000;
+  font-size: 1rem;
+}
+
+.points-usage label {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-weight: 500;
+  color: #000000;
+  margin-bottom: 15px;
+  cursor: pointer;
+}
+
+.points-usage input[type="checkbox"] {
+  width: 18px;
+  height: 18px;
+  accent-color: #000000;
+}
+
+.points-input {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.points-input input {
+  padding: 10px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  font-size: 14px;
+}
+
+.points-input input:focus {
+  outline: none;
+  border-color: #000000;
+  box-shadow: 0 0 0 2px rgba(0, 0, 0, 0.25);
+}
+
+.max-points {
+  font-size: 12px;
+  color: #666666;
+}
+
+/* 총 가격 섹션 수정 */
+.total-price-section {
+  background-color: #f8f9fa;
+  padding: 20px;
+  border-radius: 10px;
+  border: 1px solid #eee;
+}
+
+.total-price-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 8px 0;
+  font-size: 1rem;
+}
+
+.total-price-row.points-row {
+  color: #FF6B6B;
+  font-weight: bold;
+}
+
+.total-price-row.final-price {
+  border-top: 2px solid #000000;
+  margin-top: 10px;
+  padding-top: 15px;
+  font-size: 1.2rem;
+  font-weight: bold;
+  color: #000000;
+}
+
+.points-earned-info {
+  margin-top: 10px;
+  padding-top: 10px;
+  border-top: 1px solid #eee;
+  text-align: center;
+  color: #4CAF50;
+  font-weight: bold;
+  font-size: 0.9rem;
+}
+
+/* 구매 버튼 */
+.purchase-buttons {
+  display: flex;
+  gap: 15px;
+}
+
+.purchase-btn {
+  flex: 1;
+  padding: 15px 30px;
+  font-size: 16px;
+  font-weight: 600;
+}
+
+/* 상품 상세 정보 */
+.product-details-section {
+  margin-top: 40px;
+}
+
+.product-details-list {
+  list-style: none;
+  padding: 0;
+}
+
+.product-details-list li {
+  padding: 10px 0;
+  border-bottom: 1px solid #eee;
+  color: #666;
+}
+
+.product-details-list li:last-child {
+  border-bottom: none;
+}
+
+.product-details-list li:before {
+  content: "✓";
+  color: #000000;
+  font-weight: bold;
+  margin-right: 10px;
+}
+
+/* 반응형 디자인 */
+@media (max-width: 768px) {
+  .product-detail-grid {
+    grid-template-columns: 1fr;
+    gap: 30px;
+  }
+
+  .product-image-large {
+    width: 300px;
+    height: 300px;
+  }
+
+  .product-emoji-large {
+    font-size: 6rem;
+  }
+
+  .product-title {
+    font-size: 2rem;
+  }
+
+  .current-price-large {
+    font-size: 1.5rem;
+  }
+
+  .purchase-buttons {
+    flex-direction: column;
+  }
+
+  .option-buttons {
+    gap: 8px;
+  }
+
+  .option-btn {
+    padding: 12px 15px;
+    font-size: 13px;
+  }
+} 

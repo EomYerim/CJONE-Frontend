@@ -1,0 +1,267 @@
+.checkout-container {
+  min-height: calc(100vh - 80px);
+  padding: 40px 0;
+  background-color: #f8f8f8;
+}
+
+.checkout-header {
+  text-align: center;
+  margin-bottom: 40px;
+}
+
+.checkout-header h1 {
+  font-size: 2.5rem;
+  color: #000000;
+  margin-bottom: 10px;
+}
+
+.checkout-header p {
+  font-size: 1.2rem;
+  color: #666666;
+}
+
+.checkout-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 30px;
+  margin-bottom: 40px;
+}
+
+/* 주문 상품 정보 */
+.order-summary-card {
+  background: white;
+}
+
+.order-item-detail {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 0;
+}
+
+.product-info {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  flex: 1;
+}
+
+.product-thumbnail {
+  width: 80px;
+  height: 80px;
+  object-fit: cover;
+  border-radius: 10px;
+}
+
+.product-details h3 {
+  color: #000000;
+  margin-bottom: 5px;
+  font-size: 1.1rem;
+}
+
+.product-category {
+  color: #666666;
+  font-size: 0.9rem;
+  margin-bottom: 3px;
+}
+
+.product-option {
+  color: #000000;
+  font-size: 0.9rem;
+  margin-bottom: 3px;
+}
+
+.product-quantity {
+  color: #666666;
+  font-size: 0.9rem;
+}
+
+.product-price {
+  text-align: right;
+}
+
+.price-amount {
+  font-size: 1.2rem;
+  font-weight: bold;
+  color: #000000;
+}
+
+/* 결제 정보 */
+.payment-summary-card {
+  background: white;
+}
+
+.payment-breakdown {
+  padding: 20px 0;
+}
+
+.payment-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 8px 0;
+  font-size: 1rem;
+}
+
+.payment-row.subtotal {
+  border-top: 1px solid #eee;
+  margin-top: 10px;
+  padding-top: 15px;
+  font-weight: bold;
+}
+
+.payment-row.points-discount {
+  color: #FF6B6B;
+  font-weight: bold;
+}
+
+.payment-row.total {
+  border-top: 2px solid #000000;
+  margin-top: 15px;
+  padding-top: 15px;
+  font-size: 1.2rem;
+  font-weight: bold;
+  color: #000000;
+}
+
+.payment-row.points-earned {
+  color: #4CAF50;
+  font-weight: bold;
+  font-size: 0.9rem;
+}
+
+/* 배송 정보 폼 */
+.delivery-form-card {
+  background: white;
+  grid-column: 1 / -1;
+}
+
+.delivery-form {
+  padding: 20px 0;
+}
+
+.delivery-form .form-group {
+  margin-bottom: 20px;
+}
+
+.delivery-form .form-label {
+  display: block;
+  margin-bottom: 8px;
+  font-weight: 500;
+  color: #000000;
+}
+
+.delivery-form .form-input {
+  width: 100%;
+  padding: 12px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  font-size: 14px;
+  transition: border-color 0.3s ease;
+}
+
+.delivery-form .form-input:focus {
+  outline: none;
+  border-color: #000000;
+  box-shadow: 0 0 0 2px rgba(0, 0, 0, 0.25);
+}
+
+/* 결제 방법 */
+.payment-methods {
+  display: flex;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+
+.payment-method {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  cursor: pointer;
+  padding: 10px 15px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  transition: all 0.3s ease;
+}
+
+.payment-method:hover {
+  border-color: #000000;
+}
+
+.payment-method input[type="radio"] {
+  width: 16px;
+  height: 16px;
+  accent-color: #000000;
+}
+
+.payment-method span {
+  font-size: 14px;
+  color: #000000;
+}
+
+/* 체크아웃 액션 */
+.checkout-actions {
+  display: flex;
+  gap: 15px;
+  justify-content: center;
+  margin-top: 30px;
+  padding-top: 30px;
+  border-top: 1px solid #eee;
+}
+
+.checkout-actions .btn {
+  min-width: 150px;
+  padding: 15px 30px;
+  font-size: 16px;
+  font-weight: 600;
+}
+
+/* 반응형 디자인 */
+@media (max-width: 768px) {
+  .checkout-grid {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+
+  .checkout-header h1 {
+    font-size: 2rem;
+  }
+
+  .checkout-header p {
+    font-size: 1rem;
+  }
+
+  .order-item-detail {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 15px;
+  }
+
+  .product-info {
+    width: 100%;
+  }
+
+  .product-price {
+    text-align: left;
+    width: 100%;
+  }
+
+  .payment-methods {
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .payment-method {
+    width: 100%;
+  }
+
+  .checkout-actions {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .checkout-actions .btn {
+    width: 100%;
+    max-width: 300px;
+  }
+} 
