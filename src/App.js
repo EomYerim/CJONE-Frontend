@@ -14,6 +14,7 @@ function App() {
   const [username, setUsername] = useState('');
   const [userPoints, setUserPoints] = useState(0);
   const [userGrade, setUserGrade] = useState('VVIP');
+  const [isEventActive, setIsEventActive] = useState(false);
 
   // 페이지 로드 시 로컬 스토리지에서 사용자 정보 확인
   useEffect(() => {
@@ -69,10 +70,7 @@ function App() {
     localStorage.setItem('userPoints', newPoints.toString());
   };
 
-  const handleUpdateGrade = (newGrade) => {
-    setUserGrade(newGrade);
-    localStorage.setItem('userGrade', newGrade);
-  };
+
 
   return (
     <Router>
@@ -82,7 +80,14 @@ function App() {
           <Routes>
             <Route 
               path="/" 
-              element={<Home isLoggedIn={isLoggedIn} username={username} />} 
+              element={
+                <Home 
+                  isLoggedIn={isLoggedIn} 
+                  username={username} 
+                  isEventActive={isEventActive}
+                  setIsEventActive={setIsEventActive}
+                />
+              } 
             />
             <Route 
               path="/login" 
@@ -110,6 +115,7 @@ function App() {
                   userPoints={userPoints}
                   userGrade={userGrade}
                   onLogout={handleLogout}
+                  onUpdatePoints={handleUpdatePoints}
                 /> : 
                 <Navigate to="/login" replace />
               } 
@@ -121,6 +127,7 @@ function App() {
                   isLoggedIn={isLoggedIn} 
                   userPoints={userPoints}
                   onUpdatePoints={handleUpdatePoints}
+                  isEventActive={isEventActive}
                 />
               } 
             />

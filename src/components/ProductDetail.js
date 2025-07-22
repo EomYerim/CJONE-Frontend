@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
 import './ProductDetail.css';
 
-const ProductDetail = ({ isLoggedIn, userPoints, onUpdatePoints }) => {
+const ProductDetail = ({ isLoggedIn, userPoints, onUpdatePoints, isEventActive = false }) => {
   const { id } = useParams();
   const navigate = useNavigate();
   const [quantity, setQuantity] = useState(1);
@@ -12,6 +12,74 @@ const ProductDetail = ({ isLoggedIn, userPoints, onUpdatePoints }) => {
 
   // 현실적인 상품 데이터 (실제로는 API에서 가져올 데이터)
   const products = {
+    'tving-1': {
+      id: 'tving-1',
+      name: "티빙 정기결제 구독권",
+      price: 13900,
+      originalPrice: 13900,
+      image: "https://images.unsplash.com/photo-1593784991095-a205069470b6?w=600&h=600&fit=crop",
+      category: "엔터테이먼트",
+      brand: "티빙",
+      description: "월 13,900원으로 모든 콘텐츠 무제한 시청",
+      details: [
+        "모든 콘텐츠 무제한 시청",
+        "HD 화질 지원",
+        "동시시청 2명까지",
+        "광고 없는 시청"
+      ],
+      options: [
+        { id: 'monthly', name: '월간 구독', price: 0 },
+        { id: 'quarterly', name: '분기 구독', price: -2000 },
+        { id: 'yearly', name: '연간 구독', price: -5000 }
+      ],
+      stock: 999,
+      isTvingEvent: true
+    },
+    'tving-2': {
+      id: 'tving-2',
+      name: "티빙 프리미엄 패키지",
+      price: 19900,
+      originalPrice: 19900,
+      image: "https://images.unsplash.com/photo-1574267432553-4b4628081c31?w=600&h=600&fit=crop",
+      category: "엔터테이먼트",
+      brand: "티빙",
+      description: "4K 화질 + 동시시청 4명까지",
+      details: [
+        "4K UHD 화질 지원",
+        "동시시청 4명까지",
+        "다운로드 기능",
+        "프리미엄 콘텐츠 우선 제공"
+      ],
+      options: [
+        { id: 'monthly', name: '월간 구독', price: 0 },
+        { id: 'quarterly', name: '분기 구독', price: -3000 },
+        { id: 'yearly', name: '연간 구독', price: -8000 }
+      ],
+      stock: 999,
+      isTvingEvent: true
+    },
+    'cgv-1': {
+      id: 'cgv-1',
+      name: "CGV 영화관람권",
+      price: 12000,
+      originalPrice: 14000,
+      image: "https://images.unsplash.com/photo-1489599849927-2ee91cede3ba?w=600&h=600&fit=crop",
+      category: "엔터테이먼트",
+      brand: "CGV",
+      description: "전국 CGV 영화관람권",
+      details: [
+        "전국 CGV 영화관 사용 가능",
+        "2D 영화 1회 관람",
+        "유효기간 1년",
+        "예매 수수료 없음"
+      ],
+      options: [
+        { id: 'single', name: '1매', price: 0 },
+        { id: 'double', name: '2매', price: 0 },
+        { id: 'triple', name: '3매', price: 0 }
+      ],
+      stock: 100
+    },
     1: {
       id: 1,
       name: "Apple iPhone 15 Pro",
@@ -173,7 +241,11 @@ const ProductDetail = ({ isLoggedIn, userPoints, onUpdatePoints }) => {
   const maxPointsToUse = Math.min(userPoints, Math.floor(totalPrice * 0.1)); // 최대 10%까지 포인트 사용 가능
   const actualPointsToUse = usePoints ? Math.min(pointsToUse, maxPointsToUse) : 0;
   const finalTotalPrice = totalPrice - actualPointsToUse;
-  const pointsEarned = Math.floor(finalTotalPrice * 0.01); // 1% 적립
+  
+  // 티빙 이벤트 상품인 경우 선착순 이벤트 활성화 시 20%, 기본 15% 적립, 그 외는 1% 적립
+  const pointsEarned = product.isTvingEvent 
+    ? Math.floor(finalTotalPrice * (isEventActive ? 0.20 : 0.15)) 
+    : Math.floor(finalTotalPrice * 0.01);
 
   const handleQuantityChange = (newQuantity) => {
     if (newQuantity >= 1 && newQuantity <= product.stock) {
@@ -249,7 +321,16 @@ const ProductDetail = ({ isLoggedIn, userPoints, onUpdatePoints }) => {
           <div className="product-info-section">
             <div className="product-header">
               <span className="product-category">{product.category}</span>
+              {product.brand && (
+                <span className="product-brand">{product.brand}</span>
+              )}
               <h1 className="product-title">{product.name}</h1>
+              {product.isTvingEvent && (
+                <div className="tving-event-notice">
+                  <span className="event-badge">🎁 티빙 제휴 이벤트</span>
+                  <span>결제 금액의 {isEventActive ? '20%' : '15%'} 포인트 적립</span>
+                </div>
+              )}
               <div className="product-price-section">
                 <span className="current-price-large">
                   {finalPrice.toLocaleString()}원

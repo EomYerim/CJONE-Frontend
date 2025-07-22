@@ -1,9 +1,24 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import './MyPage.css';
 
-const MyPage = ({ isLoggedIn, username, userPoints, userGrade, onLogout }) => {
+const MyPage = ({ isLoggedIn, username, userPoints, userGrade, onLogout, onUpdatePoints }) => {
   const navigate = useNavigate();
+  const [bonusReceived, setBonusReceived] = useState(false);
+  const [showBonusCard, setShowBonusCard] = useState(true);
+  const [bonusLoading, setBonusLoading] = useState(false);
+  const [modal, setModal] = useState({ open: false, success: null, message: '' });
+
+  const SERVER_URL = 'http://a0219d35d86ab4232acd477406a5d205-1866668016.ap-northeast-2.elb.amazonaws.com';
+
+  // 등급별 보너스 포인트
+  const getBonusAmount = () => {
+    if (userGrade === 'SVIP') return 10000;
+    if (userGrade === 'VVIP') return 7000;
+    if (userGrade === 'VIP') return 5000;
+    return 3000;
+  };
+  const bonusAmount = getBonusAmount();
 
   if (!isLoggedIn) {
     navigate('/login');
@@ -41,12 +56,72 @@ const MyPage = ({ isLoggedIn, username, userPoints, userGrade, onLogout }) => {
     navigate('/');
   };
 
+  const handleReceiveBonus = async () => {
+    if (bonusReceived || bonusLoading) return;
+    setBonusLoading(true);
+    try {
+      await fetch(`${SERVER_URL}/points/ai`, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ userId: 'YERIM', basePoints: 10 })
+      });
+      setModal({
+        open: true,
+        success: false,
+        message: '포인트 적립에 실패했습니다. 다시 시도해 주세요.'
+      });
+    } catch (e) {
+      setModal({
+        open: true,
+        success: false,
+        message: '포인트 적립에 실패했습니다. 다시 시도해 주세요.'
+      });
+    }
+    setBonusLoading(false);
+  };
+
   return (
     <div className="mypage-container">
       <div className="container">
+        {/* AI 개인화 보너스 안내 카드 */}
+        {showBonusCard && (
+          <div className="ai-bonus-card">
+            <h2>🎉 AI 기반 개인화 포인트 보너스 오픈 기념!</h2>
+            <p>지금 <strong>{bonusAmount.toLocaleString()}P</strong> 추가 적립 혜택을 받아보세요.</p>
+            {!bonusReceived ? (
+              <button className="ai-bonus-btn" onClick={handleReceiveBonus} disabled={bonusLoading}>
+                {bonusLoading ? 'API 호출 중...' : '포인트 추가 받기'}
+              </button>
+            ) : (
+              <span className="ai-bonus-success">보너스가 지급되었습니다!</span>
+            )}
+          </div>
+        )}
+        {/* 보너스 결과 모달 */}
+        {modal.open && (
+          <div className="ai-bonus-modal-overlay">
+            <div className="ai-bonus-modal">
+              <div className="modal-content">
+                {modal.success ? (
+                  <>
+                    <div className="modal-icon success">🎉</div>
+                    <h3>포인트 적립 완료!</h3>
+                    <p>{modal.message}</p>
+                  </>
+                ) : (
+                  <>
+                    <div className="modal-icon fail">⚠️</div>
+                    <h3>포인트 적립 실패</h3>
+                    <p>{modal.message}</p>
+                  </>
+                )}
+                <button className="ai-bonus-btn" onClick={() => setModal({ ...modal, open: false })}>닫기</button>
+              </div>
+            </div>
+          </div>
+        )}
         <div className="mypage-header">
           <h1>마이페이지</h1>
-          <p>안녕하세요, <strong>{username}</strong>님!</p>
         </div>
 
         <div className="mypage-grid">

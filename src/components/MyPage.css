@@ -335,3 +335,119 @@
     max-width: 300px;
   }
 } 
+
+.points-card, .grade-card, .orders-card, .points-history-card {
+  text-align: left !important;
+}
+
+.points-card .card-header,
+.grade-card .card-header,
+.orders-card .card-header,
+.points-history-card .card-header {
+  text-align: left !important;
+}
+
+.points-info, .grade-info, .orders-list, .points-history {
+  text-align: left !important;
+} 
+
+/* AI 개인화 보너스 안내 카드 */
+.ai-bonus-card {
+  background: linear-gradient(90deg, #7f53ac 0%, #647dee 100%);
+  color: #fff;
+  border-radius: 18px;
+  padding: 32px 24px 24px 24px;
+  margin-bottom: 32px;
+  text-align: center;
+  box-shadow: 0 4px 24px rgba(100, 125, 222, 0.10);
+  position: relative;
+}
+.ai-bonus-card h2 {
+  font-size: 1.4rem;
+  margin-bottom: 10px;
+  font-weight: 700;
+}
+.ai-bonus-card p {
+  font-size: 1.1rem;
+  margin-bottom: 18px;
+}
+.ai-bonus-btn {
+  background: #fff;
+  color: #7f53ac;
+  border: none;
+  border-radius: 20px;
+  padding: 10px 28px;
+  font-weight: 600;
+  font-size: 1.05rem;
+  cursor: pointer;
+  box-shadow: 0 2px 8px rgba(127, 83, 172, 0.08);
+  transition: background 0.2s, color 0.2s;
+}
+.ai-bonus-btn:hover {
+  background: #ece6fa;
+  color: #4b2e83;
+}
+.ai-bonus-success {
+  display: inline-block;
+  background: #fffbe6;
+  color: #7f53ac;
+  font-weight: 700;
+  padding: 8px 22px;
+  border-radius: 20px;
+  font-size: 1.05rem;
+  margin-top: 10px;
+  box-shadow: 0 2px 8px rgba(255, 204, 51, 0.10);
+} 
+
+/* AI 개인화 보너스 모달 */
+.ai-bonus-modal-overlay {
+  position: fixed;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background: rgba(0,0,0,0.45);
+  z-index: 2000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  animation: fadeIn 0.2s;
+}
+.ai-bonus-modal {
+  background: #fff;
+  border-radius: 18px;
+  min-width: 320px;
+  max-width: 90vw;
+  padding: 36px 28px 28px 28px;
+  box-shadow: 0 8px 32px rgba(100, 125, 222, 0.18);
+  text-align: center;
+  position: relative;
+  animation: popIn 0.3s;
+}
+.ai-bonus-modal .modal-content h3 {
+  font-size: 1.25rem;
+  margin-bottom: 10px;
+  color: #7f53ac;
+  font-weight: 700;
+}
+.ai-bonus-modal .modal-content p {
+  font-size: 1.05rem;
+  margin-bottom: 18px;
+  color: #333;
+}
+.modal-icon.success {
+  font-size: 2.5rem;
+  margin-bottom: 10px;
+  color: #7f53ac;
+}
+.modal-icon.fail {
+  font-size: 2.5rem;
+  margin-bottom: 10px;
+  color: #ff6b6b;
+}
+@keyframes popIn {
+  0% { transform: scale(0.7); opacity: 0; }
+  60% { transform: scale(1.1); opacity: 1; }
+  100% { transform: scale(1); }
+}
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+} 
