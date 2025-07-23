@@ -7,6 +7,7 @@ import Signup from './components/Signup';
 import MyPage from './components/MyPage';
 import ProductDetail from './components/ProductDetail';
 import Checkout from './components/Checkout';
+import AIBonusPoster from './components/AIBonusPoster';
 import './App.css';
 
 function App() {
@@ -140,6 +141,7 @@ function App() {
                 />
               } 
             />
+            <Route path="/ai-bonus" element={<AIBonusPoster userGrade={userGrade} onUpdatePoints={handleUpdatePoints} />} />
             <Route path="*" element={<Navigate to="/" replace />} />
           </Routes>
         </main>

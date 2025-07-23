@@ -83,20 +83,7 @@ const MyPage = ({ isLoggedIn, username, userPoints, userGrade, onLogout, onUpdat
   return (
     <div className="mypage-container">
       <div className="container">
-        {/* AI 개인화 보너스 안내 카드 */}
-        {showBonusCard && (
-          <div className="ai-bonus-card">
-            <h2>🎉 AI 기반 개인화 포인트 보너스 오픈 기념!</h2>
-            <p>지금 <strong>{bonusAmount.toLocaleString()}P</strong> 추가 적립 혜택을 받아보세요.</p>
-            {!bonusReceived ? (
-              <button className="ai-bonus-btn" onClick={handleReceiveBonus} disabled={bonusLoading}>
-                {bonusLoading ? 'API 호출 중...' : '포인트 추가 받기'}
-              </button>
-            ) : (
-              <span className="ai-bonus-success">보너스가 지급되었습니다!</span>
-            )}
-          </div>
-        )}
+        {/* AI 보너스 카드 및 적립 버튼 관련 코드 전체 제거 */}
         {/* 보너스 결과 모달 */}
         {modal.open && (
           <div className="ai-bonus-modal-overlay">

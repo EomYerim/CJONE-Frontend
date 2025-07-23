@@ -380,7 +380,9 @@ const Home = ({ isLoggedIn, username, isEventActive, setIsEventActive }) => {
         <div className="container">
           <span role="img" aria-label="ai">🤖</span>
           <strong>AI 기반 개인화 포인트 보너스 오픈!</strong> 지금 나만의 보너스를 확인하세요.
-          <button className="ai-bonus-btn" onClick={() => navigate('/mypage')}>나만의 보너스 확인하기</button>
+          <button className="ai-bonus-banner-btn" onClick={() => navigate('/ai-bonus')}>
+            나만의 보너스 확인하기
+          </button>
         </div>
       </div>
 
