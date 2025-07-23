@@ -167,36 +167,36 @@ const Home = ({ isLoggedIn, username, isEventActive, setIsEventActive }) => {
   }, []);
 
   // 3초 후 모달 표시 및 카운트다운 (테스트용)
-  useEffect(() => {
-    console.log('타이머 시작');
-    const modalTimer = setTimeout(() => {
-      console.log('모달 표시');
-      setShowModal(true);
-      setIsEventActive(true);
-    }, 3000); // 3초 후 (테스트용)
+  // useEffect(() => {
+  //   console.log('타이머 시작');
+  //   const modalTimer = setTimeout(() => {
+  //     console.log('모달 표시');
+  //     setShowModal(true);
+  //     setIsEventActive(true);
+  //   }, 3000); // 3초 후 (테스트용)
 
-    return () => {
-      clearTimeout(modalTimer);
-    };
-  }, []);
+  //   return () => {
+  //     clearTimeout(modalTimer);
+  //   };
+  // }, []);
 
-  // 모달이 열려있을 때만 카운트다운 실행
-  useEffect(() => {
-    if (!showModal) return;
+  // // 모달이 열려있을 때만 카운트다운 실행
+  // useEffect(() => {
+  //   if (!showModal) return;
 
-    const countdownTimer = setInterval(() => {
-      if (timeLeft > 0) {
-        setTimeLeft(prev => prev - 1);
-      } else {
-        setIsEventActive(false);
-        setShowModal(false);
-      }
-    }, 1000);
+  //   const countdownTimer = setInterval(() => {
+  //     if (timeLeft > 0) {
+  //       setTimeLeft(prev => prev - 1);
+  //     } else {
+  //       setIsEventActive(false);
+  //       setShowModal(false);
+  //     }
+  //   }, 1000);
 
-    return () => {
-      clearInterval(countdownTimer);
-    };
-  }, [showModal, timeLeft, setIsEventActive]); // eslint-disable-line react-hooks/exhaustive-deps
+  //   return () => {
+  //     clearInterval(countdownTimer);
+  //   };
+  // }, [showModal, timeLeft, setIsEventActive]); // eslint-disable-line react-hooks/exhaustive-deps
 
   const handleProductClick = (productId) => {
     navigate(`/product/${productId}`);
